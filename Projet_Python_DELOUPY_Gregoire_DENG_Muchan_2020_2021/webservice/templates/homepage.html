@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+  <title>Prediction</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+<div class="container py-3">
+    <div class="row">
+        <div class="mx-auto col-sm-6">
+                    <!-- form user info -->
+                    <div class="card">
+                        <div class="card-header">
+                            <h4 class="mb-0">Prediction Information</h4>
+                        </div>
+                        <div class="card-body">
+                            <form method="POST" class="form", action="{{url_for('home')}}" autocomplete="off">
+                                <div class="form-group row">
+                                    <label class="col-lg-2 col-form-label form-control-label" for="date">Date</label>
+                                    <div class="col-lg-4">
+                                        <input class="form-control" type="text" name="date" value="08/01/2021">
+                                    </div>
+                                    <label class="col-lg-2 col-form-label form-control-label" for="hour">Hour</label>
+                                    <div class="col-lg-4">
+                                        <select class="form-control" name="hour">
+                                            <option>0</option>
+                                            <option>1</option>
+                                            <option>2</option>
+                                            <option>3</option>
+                                            <option>4</option>
+                                            <option>5</option>
+                                            <option>6</option>
+                                            <option>7</option>
+                                            <option>8</option>
+                                            <option>9</option>
+                                            <option>10</option>
+                                            <option>11</option>
+                                            <option>12</option>
+                                            <option>13</option>
+                                            <option>14</option>
+                                            <option>15</option>
+                                            <option>16</option>
+                                            <option>17</option>
+                                            <option>18</option>
+                                            <option>19</option>
+                                            <option>20</option>
+                                            <option>21</option>
+                                            <option>22</option>
+                                            <option>23</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-lg-4 col-form-label form-control-label" for="temperature">Temperature(?C)</label>
+                                    <div class="col-lg-8">
+                                        <input class="form-control" type="number" name="temperature" step="0.01">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-lg-4 col-form-label form-control-label" for="humidity">Humidity(%)</label>
+                                    <div class="col-lg-8">
+                                        <input class="form-control" type="number" name="humidity">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-lg-4 col-form-label form-control-label" for="windspeed">Wind speed (m/s)</label>
+                                    <div class="col-lg-8">
+                                        <input class="form-control" type="number" name="windspeed" step="0.01">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-lg-4 col-form-label form-control-label" for="visibility">Visibility (10m)</label>
+                                    <div class="col-lg-8">
+                                        <input class="form-control" type="number" name="visibility">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-lg-4 col-form-label form-control-label" for="dewpointtemperature">Dew point temperature(?C)</label>
+                                    <div class="col-lg-8">
+                                        <input class="form-control" type="number" name="dewpointtemperature" step="0.01">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-lg-4 col-form-label form-control-label" for="solarradiation">Solar Radiation (MJ/m2)</label>
+                                    <div class="col-lg-8">
+                                        <input class="form-control" type="number" name="solarradiation" step="0.01">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-lg-3 col-form-label form-control-label" for="rainfall">Rainfall(mm)</label>
+                                    <div class="col-lg-3">
+                                        <input class="form-control" type="number" name="rainfall" value="0" step="0.01">
+                                    </div>
+                                    <label class="col-lg-3 col-form-label form-control-label" for="snowfall">Snowfall (cm)</label>
+                                    <div class="col-lg-3">
+                                        <input class="form-control" type="number" name="snowfall" value="0" step="0.01">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-lg-2 col-form-label form-control-label" for="seasons">Seasons</label>
+                                    <div class="col-lg-4">
+                                        <select class="form-control" name="seasons">
+                                          <option>Winter</option>
+                                          <option>Spring</option>
+                                          <option>Summer</option>
+                                          <option>Autumn</option>
+                                        </select>
+                                    </div>
+                                    <label class="col-lg-2 col-form-label form-control-label" for="holiday">Holiday</label>
+                                    <div class="col-lg-4">
+                                      <select class="form-control" name="holiday">
+                                        <option>No Holiday</option>
+                                        <option>Holiday</option>
+                                    </select>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-lg-4 col-form-label form-control-label" for="functioningday">Functioning Day</label>
+                                    <div class="col-lg-8">
+                                      <select class="form-control" name="functioningday">
+                                        <option>Yes</option>
+                                        <option>No</option>
+                                      </select>
+                                  </div>
+                                </div>
+                            </br>
+                                <div class="text-center"><button type="submit" class="btn btn-primary mb-2" value="predict" >Submit</button></div>
+
+                            </form>
+                        </div>
+                    </div>
+                    <!-- /form user info -->
+        </div>
+    </div>
+</div>
+
+</body>
+
+</html>
